@@ -1,12 +1,14 @@
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import './globals.css';
+import { ThemeProvider } from '@/components/providers/theme-provider';
 
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
-  title: 'Construction Tech Intelligence Dashboard',
-  description: 'Real-time investment intelligence for construction technology',
+  title: 'ConTech Intelligence | Investment Analytics Dashboard',
+  description: 'World-class construction technology investment intelligence platform with real-time analytics and insights',
+  keywords: 'construction tech, investment, analytics, venture capital, startups',
 };
 
 export default function RootLayout({
@@ -15,9 +17,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body className={inter.className}>
-        {children}
+        <ThemeProvider>
+          {children}
+        </ThemeProvider>
       </body>
     </html>
   );
